@@ -1,7 +1,7 @@
 let res
   function shorturl() {
     if(document.querySelector("#text").value==""){
-        alert("Url cannot be empty!")
+        alert("Url 不能为空!")
         return
     }
 
@@ -17,14 +17,14 @@ let res
   .then(function(myJson) {
     res = myJson;
     document.getElementById("searchbtn").disabled=false;
-	document.getElementById("searchbtn").innerHTML=' Shorten it';
+	document.getElementById("searchbtn").innerHTML=' 缩短';
     if(res.key!=="")
     document.getElementById("result").innerHTML=window.location.host+res.key;
     $('#exampleModal').modal('show')
   }).catch(function(err){alert("Unknow error. Please retry!");
   console.log(err);
   document.getElementById("searchbtn").disabled=false;
-	document.getElementById("searchbtn").innerHTML=' Shorten it';})
+	document.getElementById("searchbtn").innerHTML=' 缩短';})
   }
   function copyurl (id, attr) {
     let target = null;
@@ -51,9 +51,9 @@ let res
         window.getSelection().addRange(range);
         document.execCommand('copy');
         window.getSelection().removeAllRanges();
-        console.log('Copy success')
+        console.log('复制成功')
     } catch (e) {
-        console.log('Copy error')
+        console.log('复制错误')
     }
 
     if (attr) {
