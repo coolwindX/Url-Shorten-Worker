@@ -2,12 +2,12 @@ const config = {
   result_page: false, // After get the value from KV, if use a page to show the result.
   theme: "", // Homepage theme, use the empty value for default theme. To use urlcool theme, please fill with "theme/urlcool" .
   cors: true, // Allow Cross-origin resource sharing for API requests.
-  unique_link: false, // If it is true, the same long url will be shorten into the same short url
+  unique_link: true, // If it is true, the same long url will be shorten into the same short url
   custom_link: true, // Allow users to customize the short url.
-  overwrite_kv: false, // Allow user to overwrite an existed key.
+  overwrite_kv: true, // Allow user to overwrite an existed key.
   snapchat_mode: false, // The link will be distroyed after access.
   visit_count: false, // Count visit times.
-  load_kv: false, // Load all from Cloudflare KV
+  load_kv: true, // Load all from Cloudflare KV
   system_type: "shorturl", // shorturl, imghost, other types {pastebin, journal}
 }
 
@@ -16,15 +16,15 @@ const protect_keylist = [
   "password",
 ]
 
-let index_html = "https://crazypeace.github.io/Url-Shorten-Worker/" + config.theme + "/index.html"
-let result_html = "https://crazypeace.github.io/Url-Shorten-Worker/" + config.theme + "/result.html"
+let index_html = "https://coolwindx.github.io/Url-Shorten-Worker/" + config.theme + "/index.html"
+let result_html = "https://coolwindx.github.io/Url-Shorten-Worker/" + config.theme + "/result.html"
 
 const html404 = `<!DOCTYPE html>
   <html>
   <body>
     <h1>404 Not Found.</h1>
     <p>The url you visit is not found.</p>
-    <p> <a href="https://github.com/crazypeace/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a> </p>
+    <p> <a href="https://github.com/coolwindx/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a> </p>
   </body>
   </html>`
 
@@ -294,7 +294,7 @@ async function handleRequest(request) {
   // 如果path为空, 即直接访问本worker
   // If visit this worker directly (no path)
   if (!path) {
-    return Response.redirect("https://zelikk.blogspot.com/search/label/Url-Shorten-Worker", 302)
+    return Response.redirect("https://blog.coolwind.top/404", 302)
     /* new Response(html404, {
       headers: response_header,
       status: 404
