@@ -22,14 +22,14 @@
 
           <span class="input-group-text" id="basic-addon1">长链接</span>
 
-        <input type="text" class="form-control" id="longURL" aria-describedby="basic-addon1" placeholder="Example: https://example.com/" oninput="loadUrlList()">
+        <input type="text" class="form-control" id="longURL" aria-describedby="basic-addon1" placeholder="例如: https://example.com/" oninput="loadUrlList()">
       </div>
 
       <div class="input-group mb-3">
 
           <span class="input-group-text" id="basic-addon2">自定义短链</span>
 
-        <input type="text" class="form-control" id="keyPhrase" aria-describedby="basic-addon2" placeholder="As you wish">
+        <input type="text" class="form-control" id="keyPhrase" aria-describedby="basic-addon2" placeholder="填入你想要自定义的后缀">
       </div>
 
       <div class="input-group mb-3">
@@ -82,7 +82,7 @@
         </div>
         <div class="modal-body" id="result">结果为空</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick='copyurl("result")' data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Copied!">Copy</button>
+          <button type="button" class="btn btn-primary" onclick='copyurl("result")' data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="已复制!">复制</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
         </div>
       </div>
