@@ -16,6 +16,7 @@ let res
       body: JSON.stringify({
       cmd: "add",
       url: input,
+      key: "",
       password: pwd
     })
     }).then(function(response) {
@@ -25,8 +26,11 @@ let res
     res = myJson;
     document.getElementById("searchbtn").disabled=false;
 	document.getElementById("searchbtn").innerHTML=' 缩短';
-    if(res.key!=="")
-    document.getElementById("result").innerHTML=window.location.host+res.key;
+    if(res.status == "200")
+    document.getElementById("result").innerHTML = window.location.protocol + "//" + window.location.host + "/" + res.key;
+    else {
+      document.getElementById("result").innerHTML = res.error;
+    }
     $('#exampleModal').modal('show')
   }).catch(function(err){alert("Unknow error. Please retry!");
   console.log(err);
