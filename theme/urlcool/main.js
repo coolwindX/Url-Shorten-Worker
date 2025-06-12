@@ -6,6 +6,8 @@ let res
     return;
   }
 
+   const pwd = window.location.pathname.substring(1);
+
     document.getElementById("searchbtn").disabled=true;
 	document.getElementById("searchbtn").innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Please wait...';
     fetch(window.location.pathname, {
@@ -13,7 +15,8 @@ let res
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
       cmd: "add",
-      url: input
+      url: input,
+      password: pwd
     })
     }).then(function(response) {
     return response.json();
