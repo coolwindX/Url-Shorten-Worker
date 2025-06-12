@@ -1,16 +1,20 @@
 let res
   function shorturl() {
-    if(document.querySelector("#text").value==""){
-        alert("Url 不能为空!")
-        return
-    }
+  const input = document.querySelector("#text").value;
+  if (!input) {
+    alert("Url 不能为空!");
+    return;
+  }
 
     document.getElementById("searchbtn").disabled=true;
 	document.getElementById("searchbtn").innerHTML='<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Please wait...';
     fetch(window.location.pathname, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: document.querySelector("#text").value })
+      body: JSON.stringify({
+      cmd: "add",
+      url: input
+    })
     }).then(function(response) {
     return response.json();
   })
